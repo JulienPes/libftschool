@@ -6,7 +6,7 @@
 /*   By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:11:17 by jpes              #+#    #+#             */
-/*   Updated: 2023/03/29 17:14:42 by jpes             ###   ########.fr       */
+/*   Updated: 2023/04/25 16:24:16 by jpes             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,3 @@ int	ft_isdigit(int c)
 		return (0);
 	}
 }
-/*
-int	 main(void)
-{
-	int num;
-	num = 5;
-	printf("%d",ft_isdigit(num));
-	return (0);
-}
-*/

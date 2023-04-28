@@ -6,7 +6,7 @@
 /*   By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:15:08 by jpes              #+#    #+#             */
-/*   Updated: 2023/03/29 15:18:14 by jpes             ###   ########.fr       */
+/*   Updated: 2023/04/28 14:24:55 by jpes             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ int	ft_isalpha(int c)
 		return (0);
 	}
 }
-
-/*
-int	main	(void)
-{
-	char c;
-	c = 65;
-printf("La vrai %d\n",isalpha(c));
-printf("La mienne %d",ft_isalpha(c));
-	return (0);
-}
-*/

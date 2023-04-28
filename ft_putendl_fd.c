@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 11:23:47 by jpes              #+#    #+#             */
-/*   Updated: 2023/04/28 11:42:06 by jpes             ###   ########.fr       */
+/*   Created: 2023/04/27 17:59:51 by jpes              #+#    #+#             */
+/*   Updated: 2023/04/28 14:31:05 by jpes             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const	*s1, char const	*set)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	size_t	len;
-	char	*str;
+	int	i;
 
-	str = 0;
-	if (!s1 || !*s1)
-		return (ft_strdup(""));
-	if (s1 != 0 && set != 0)
+	i = 0;
+	while (s[i])
 	{
-		i = 0;
-		len = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[len - 1] && ft_strchr(set, s1[len -1]) && len > i)
+		if (s[i] == '\0')
 		{
-			len --;
+			write(fd, "\n", 1);
 		}
-		str = (char *)malloc(sizeof(char) * (len - i + 1));
-		if (str)
-			ft_strlcpy(str, &s1[i], len - i + 1);
+		write(fd, &s[i], 1);
+		i ++;
 	}
-	return (str);
+	write(fd, "\n", 1);
 }

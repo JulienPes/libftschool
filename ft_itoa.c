@@ -1,39 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 11:23:47 by jpes              #+#    #+#             */
-/*   Updated: 2023/04/28 11:42:06 by jpes             ###   ########.fr       */
+/*   Created: 2023/04/26 12:51:58 by jpes              #+#    #+#             */
+/*   Updated: 2023/04/28 11:20:26 by jpes             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const	*s1, char const	*set)
+int	mallocsize(long nb)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+
+	i = 0;
+	if (nb == 0)
+	{
+		return (1);
+	}
+	if (nb < 0)
+	{
+		nb *= -1;
+		i ++;
+	}
+	while (nb > 0)
+	{
+		nb /= 10;
+		i ++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	long	nb;
+	int		i;
 	char	*str;
 
-	str = 0;
-	if (!s1 || !*s1)
-		return (ft_strdup(""));
-	if (s1 != 0 && set != 0)
+	nb = n;
+	i = mallocsize(nb);
+	str = ft_calloc(sizeof(char), i + 1);
+	if (!str)
+		return (0);
+	str[i--] = 0;
+	if (nb == 0)
+		str[0] = 48;
+	if (nb < 0)
 	{
-		i = 0;
-		len = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[len - 1] && ft_strchr(set, s1[len -1]) && len > i)
-		{
-			len --;
-		}
-		str = (char *)malloc(sizeof(char) * (len - i + 1));
-		if (str)
-			ft_strlcpy(str, &s1[i], len - i + 1);
+		str[0] = '-';
+		nb = nb * -1;
+	}
+	while (nb > 0)
+	{
+		str[i--] = nb % 10 + '0';
+		nb = nb / 10;
 	}
 	return (str);
 }

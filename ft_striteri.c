@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 11:23:47 by jpes              #+#    #+#             */
-/*   Updated: 2023/04/28 11:42:06 by jpes             ###   ########.fr       */
+/*   Created: 2023/04/25 13:30:03 by jpes              #+#    #+#             */
+/*   Updated: 2023/04/28 12:47:20 by jpes             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const	*s1, char const	*set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	size_t	len;
-	char	*str;
+	unsigned int	i;
+	unsigned int	n;
 
-	str = 0;
-	if (!s1 || !*s1)
-		return (ft_strdup(""));
-	if (s1 != 0 && set != 0)
+	i = 0;
+	n = 0;
+	if (s != NULL && f != NULL)
 	{
-		i = 0;
-		len = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[len - 1] && ft_strchr(set, s1[len -1]) && len > i)
+		n = ft_strlen(s);
+		while (i < n)
 		{
-			len --;
+			(*f)(i, s);
+			i ++;
+			s ++;
 		}
-		str = (char *)malloc(sizeof(char) * (len - i + 1));
-		if (str)
-			ft_strlcpy(str, &s1[i], len - i + 1);
 	}
-	return (str);
 }

@@ -6,7 +6,7 @@
 #    By: jpes <jpes@student.42nice.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:16:05 by jpes              #+#    #+#              #
-#    Updated: 2023/04/24 11:26:12 by jpes             ###   ########.fr        #
+#    Updated: 2023/04/27 18:48:49 by jpes             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,14 @@ SRCS = 	ft_isalpha.c \
 			ft_substr.c \
 			ft_strjoin.c \
 			ft_strtrim.c \
+			ft_striteri.c \
+			ft_strmapi.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_itoa.c \
+			ft_split.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
 			
 			
 OBJECTS = ${SRCS:.c=.o}
